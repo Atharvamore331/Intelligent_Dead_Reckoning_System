@@ -201,67 +201,61 @@
 </div>
 </header>
 <!-- Form -->
-<form action="#" class="flex flex-col gap-5 w-full max-w-sm" method="POST">
-<!-- Username / Email Field -->
-<div class="flex flex-col gap-1.5">
-<label class="text-mono-data font-mono-data text-on-surface-variant uppercase tracking-wide" for="identifier">Operator ID / Email</label>
-<div class="relative flex items-center">
-<span class="material-symbols-outlined absolute left-3 text-on-surface-variant pointer-events-none text-[20px]">badge</span>
-<input class="w-full bg-surface-container-lowest border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-on-surface pl-10 pr-4 py-3 h-[48px] text-body-md font-body-md transition-colors placeholder:text-on-surface-variant/50" id="identifier" name="identifier" placeholder="Enter identification" type="text"/>
-</div>
-</div>
-<!-- Password Field -->
-<div class="flex flex-col gap-1.5">
-<div class="flex justify-between items-end">
-<label class="text-mono-data font-mono-data text-on-surface-variant uppercase tracking-wide" for="passcode">Security Key</label>
-<a class="text-label-caps font-label-caps text-primary hover:text-primary-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded px-1" href="#">FORGOT?</a>
-</div>
-<div class="relative flex items-center group">
-<span class="material-symbols-outlined absolute left-3 text-on-surface-variant pointer-events-none text-[20px]">lock</span>
-<input class="w-full bg-surface-container-lowest border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-on-surface pl-10 pr-12 py-3 h-[48px] text-body-md font-body-md transition-colors placeholder:text-on-surface-variant/50" id="passcode" name="passcode" placeholder="••••••••" type="password"/>
-<button aria-label="Toggle password visibility" class="absolute right-3 text-on-surface-variant hover:text-on-surface transition-colors focus:outline-none focus:text-primary h-full flex items-center justify-center w-8" id="togglePassword" type="button">
-<span class="material-symbols-outlined text-[20px]" id="visibilityIcon">visibility</span>
-</button>
-</div>
-</div>
-<!-- Remember Me -->
-<div class="flex items-center gap-3 mt-1">
-<input class="w-[20px] h-[20px] rounded-[4px] border-outline-variant bg-surface-container-lowest text-inverse-primary focus:ring-primary focus:ring-offset-surface focus:ring-offset-2 cursor-pointer transition-colors" id="remember" name="remember" type="checkbox"/>
-<label class="text-body-md font-body-md text-on-surface-variant cursor-pointer select-none" for="remember">Maintain encrypted session</label>
-</div>
-<!-- Submit Action -->
-<button class="w-full bg-inverse-primary hover:bg-[#00479e] active:bg-[#00367a] text-white text-headline-md font-headline-md h-[56px] rounded-lg mt-4 transition-all flex justify-center items-center gap-3 shadow-[0_4px_12px_rgba(0,90,194,0.3)] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-surface" type="submit">
-<span>Authenticate</span>
-<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
-</button>
+<form data-auth-form data-redirect="../intellidr_admin_dashboard/code.html" class="flex flex-col gap-5 w-full max-w-sm" method="POST">
+  <div data-auth-status class="hidden rounded border border-red-500/50 bg-red-500/10 px-3 py-2 text-sm text-red-200"></div>
+  <!-- Username / Email Field -->
+  <div class="flex flex-col gap-1.5">
+    <label class="text-mono-data font-mono-data text-on-surface-variant uppercase tracking-wide" for="identifier">Operator ID / Email</label>
+    <div class="relative flex items-center">
+      <span class="material-symbols-outlined absolute left-3 text-on-surface-variant pointer-events-none text-[20px]">badge</span>
+      <input class="w-full bg-surface-container-lowest border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-on-surface pl-10 pr-4 py-3 h-[48px] text-body-md font-body-md transition-colors placeholder:text-on-surface-variant/50" id="identifier" name="identifier" placeholder="Enter identification" type="text"/>
+    </div>
+  </div>
+  <!-- Password Field -->
+  <div class="flex flex-col gap-1.5">
+    <div class="flex justify-between items-end">
+      <label class="text-mono-data font-mono-data text-on-surface-variant uppercase tracking-wide" for="passcode">Security Key</label>
+      <a class="text-label-caps font-label-caps text-primary hover:text-primary-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded px-1" href="#">FORGOT?</a>
+    </div>
+    <div class="relative flex items-center group">
+      <span class="material-symbols-outlined absolute left-3 text-on-surface-variant pointer-events-none text-[20px]">lock</span>
+      <input class="w-full bg-surface-container-lowest border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-on-surface pl-10 pr-12 py-3 h-[48px] text-body-md font-body-md transition-colors placeholder:text-on-surface-variant/50" id="passcode" name="passcode" placeholder="••••••••" type="password"/>
+      <button aria-label="Toggle password visibility" class="absolute right-3 text-on-surface-variant hover:text-on-surface transition-colors focus:outline-none focus:text-primary h-full flex items-center justify-center w-8" id="togglePassword" type="button">
+        <span class="material-symbols-outlined text-[20px]" id="visibilityIcon">visibility</span>
+      </button>
+    </div>
+  </div>
+  <!-- Remember Me -->
+  <div class="flex items-center gap-3 mt-1">
+    <input class="w-[20px] h-[20px] rounded-[4px] border-outline-variant bg-surface-container-lowest text-inverse-primary focus:ring-primary focus:ring-offset-surface focus:ring-offset-2 cursor-pointer transition-colors" id="remember" name="remember" type="checkbox"/>
+    <label class="text-body-md font-body-md text-on-surface-variant cursor-pointer select-none" for="remember">Maintain encrypted session</label>
+  </div>
+  <!-- Submit Action -->
+  <button class="w-full bg-inverse-primary hover:bg-[#00479e] active:bg-[#00367a] text-white text-headline-md font-headline-md h-[56px] rounded-lg mt-4 transition-all flex justify-center items-center gap-3 shadow-[0_4px_12px_rgba(0,90,194,0.3)] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-surface" type="submit">
+    <span>Authenticate</span>
+    <span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+  </button>
 </form>
 <!-- Admin Access Link -->
 <footer class="mt-auto pt-10 flex border-t border-outline-variant/50 mt-12 w-full max-w-sm">
-<a class="flex items-center gap-2 text-mono-data font-mono-data text-on-surface-variant hover:text-primary transition-colors group focus:outline-none focus:text-primary rounded" href="#">
-<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform">admin_panel_settings</span>
-<span>Admin Access Gateway</span>
-</a>
+  <a class="flex items-center gap-2 text-mono-data font-mono-data text-on-surface-variant hover:text-primary transition-colors group focus:outline-none focus:text-primary rounded" href="../intellidr_admin_login/code.html">
+    <span class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform">admin_panel_settings</span>
+    <span>Admin Access Gateway</span>
+  </a>
 </footer>
 </section>
 </main>
+<script src="../app.js"></script>
 <script>
-        // Simple password toggle interaction
-        const toggleButton = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('passcode');
-        const visibilityIcon = document.getElementById('visibilityIcon');
+  const toggleButton = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('passcode');
+  const visibilityIcon = document.getElementById('visibilityIcon');
 
-        toggleButton.addEventListener('click', () => {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            
-            // Toggle icon visual
-            if (type === 'text') {
-                visibilityIcon.textContent = 'visibility_off';
-                visibilityIcon.style.color = '#adc6ff'; // highlight color when visible
-            } else {
-                visibilityIcon.textContent = 'visibility';
-                visibilityIcon.style.color = ''; // revert to default
-            }
-        });
-    </script>
+  toggleButton.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    visibilityIcon.textContent = type === 'text' ? 'visibility_off' : 'visibility';
+    visibilityIcon.style.color = type === 'text' ? '#adc6ff' : '';
+  });
+</script>
 </body></html>

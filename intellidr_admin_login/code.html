@@ -115,48 +115,50 @@
 <p class="text-label-caps font-label-caps text-on-surface-variant tracking-widest uppercase">Admin Console</p>
 </header>
 <!-- Form -->
-<form class="flex flex-col gap-6" onsubmit="event.preventDefault();">
-<div class="flex flex-col gap-stack_gap">
-<!-- Username/Email Field -->
-<div class="relative">
-<label class="sr-only" for="admin-email">Admin Email or Username</label>
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
-<span class="material-symbols-outlined">person</span>
-</div>
-<input class="w-full pl-10 pr-4 py-3 bg-[#0B0B0C] border border-outline-variant rounded focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] text-on-surface placeholder-on-surface-variant text-body-md font-body-md transition-colors" id="admin-email" name="admin-email" placeholder="Admin Username / Email" required="" type="text"/>
-</div>
-<!-- Password Field -->
-<div class="relative group">
-<label class="sr-only" for="admin-password">Password</label>
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
-<span class="material-symbols-outlined">lock</span>
-</div>
-<input class="w-full pl-10 pr-12 py-3 bg-[#0B0B0C] border border-outline-variant rounded focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] text-on-surface placeholder-on-surface-variant text-body-md font-body-md transition-colors" id="admin-password" name="admin-password" placeholder="Password" required="" type="password"/>
-<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface focus:outline-none h-full touch_target_min w-12 justify-center" type="button">
-<span class="material-symbols-outlined">visibility_off</span>
-</button>
-</div>
-</div>
-<!-- Options Row -->
-<div class="flex items-center justify-between mt-2">
-<label class="flex items-center gap-2 cursor-pointer group">
-<input class="form-checkbox h-4 w-4 bg-[#0B0B0C] border-outline-variant text-[#3B82F6] rounded focus:ring-[#3B82F6] focus:ring-offset-background" type="checkbox"/>
-<span class="text-body-md font-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Remember me</span>
-</label>
-<a class="text-body-md font-body-md text-primary hover:text-primary-fixed transition-colors" href="#">Forgot Password?</a>
-</div>
-<!-- Submit Button -->
-<button class="w-full h-12 mt-4 bg-[#3B82F6] hover:bg-[#2563EB] text-white text-headline-md font-headline-md font-semibold rounded transition-colors active:scale-95 flex items-center justify-center gap-2" type="submit">
-<span>Admin Login</span>
-<span class="material-symbols-outlined text-sm">login</span>
-</button>
+<form data-auth-form data-redirect="../intellidr_admin_dashboard/code.html" class="flex flex-col gap-6" method="POST">
+  <div data-auth-status class="hidden rounded border border-red-500/50 bg-red-500/10 px-3 py-2 text-sm text-red-200"></div>
+  <div class="flex flex-col gap-stack_gap">
+    <!-- Username/Email Field -->
+    <div class="relative">
+      <label class="sr-only" for="admin-email">Admin Email or Username</label>
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+        <span class="material-symbols-outlined">person</span>
+      </div>
+      <input class="w-full pl-10 pr-4 py-3 bg-[#0B0B0C] border border-outline-variant rounded focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] text-on-surface placeholder-on-surface-variant text-body-md font-body-md transition-colors" id="admin-email" name="admin-email" placeholder="Admin Username / Email" required="" type="text"/>
+    </div>
+    <!-- Password Field -->
+    <div class="relative group">
+      <label class="sr-only" for="admin-password">Password</label>
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+        <span class="material-symbols-outlined">lock</span>
+      </div>
+      <input class="w-full pl-10 pr-12 py-3 bg-[#0B0B0C] border border-outline-variant rounded focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] text-on-surface placeholder-on-surface-variant text-body-md font-body-md transition-colors" id="admin-password" name="admin-password" placeholder="Password" required="" type="password"/>
+      <button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface focus:outline-none h-full touch_target_min w-12 justify-center" type="button">
+        <span class="material-symbols-outlined">visibility_off</span>
+      </button>
+    </div>
+  </div>
+  <!-- Options Row -->
+  <div class="flex items-center justify-between mt-2">
+    <label class="flex items-center gap-2 cursor-pointer group">
+      <input class="form-checkbox h-4 w-4 bg-[#0B0B0C] border-outline-variant text-[#3B82F6] rounded focus:ring-[#3B82F6] focus:ring-offset-background" type="checkbox"/>
+      <span class="text-body-md font-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Remember me</span>
+    </label>
+    <a class="text-body-md font-body-md text-primary hover:text-primary-fixed transition-colors" href="#">Forgot Password?</a>
+  </div>
+  <!-- Submit Button -->
+  <button class="w-full h-12 mt-4 bg-[#3B82F6] hover:bg-[#2563EB] text-white text-headline-md font-headline-md font-semibold rounded transition-colors active:scale-95 flex items-center justify-center gap-2" type="submit">
+    <span>Admin Login</span>
+    <span class="material-symbols-outlined text-sm">login</span>
+  </button>
 </form>
 <!-- Footer Link -->
 <div class="mt-6 pt-6 border-t border-outline-variant text-center">
-<a class="text-body-md font-body-md text-on-surface-variant hover:text-on-surface transition-colors inline-flex items-center gap-2" href="#">
-<span class="material-symbols-outlined text-sm">arrow_back</span>
-                Return to User Portal
-            </a>
+  <a class="text-body-md font-body-md text-on-surface-variant hover:text-on-surface transition-colors inline-flex items-center gap-2" href="../intellidr_user_login/code.html">
+    <span class="material-symbols-outlined text-sm">arrow_back</span>
+    Return to User Portal
+  </a>
 </div>
 </main>
+<script src="../app.js"></script>
 </body></html>
