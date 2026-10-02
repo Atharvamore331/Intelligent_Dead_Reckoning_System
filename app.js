@@ -56,16 +56,17 @@
 
   function bindRoutes() {
     document.querySelectorAll('[data-route]').forEach((button) => {
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (event) => {
         const target = button.dataset.route;
-        if (target) {
-          window.location.href = target;
-        }
+        if (!target) return;
+        event.preventDefault();
+        window.location.href = target;
       });
     });
 
     document.querySelectorAll('[data-logout]').forEach((button) => {
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
         writeUser(null);
         window.location.href = '../intellidr_user_login/code.html';
       });
@@ -73,10 +74,21 @@
   }
 
   function updateAuthState() {
-    const pageName = window.location.pathname.split('/').pop();
     const user = readUser();
+    const pathname = window.location.pathname;
+    const isLoginPage = pathname.includes('/intellidr_user_login/') || pathname.includes('/intellidr_admin_login/');
+    const protectedPages = [
+      '/intellidr_admin_dashboard/',
+      '/intellidr_fleet_analytics/',
+      '/intellidr_live_navigation/',
+      '/intellidr_navigation_monitoring/',
+      '/intellidr_navigation_performance/',
+      '/intellidr_sensor_insights/',
+      '/intellidr_trip_details/',
+      '/intellidr_admin_settings/'
+    ];
 
-    if (pageName === 'code.html' && (window.location.pathname.includes('/intellidr_admin_dashboard/') || window.location.pathname.includes('/intellidr_live_navigation/') || window.location.pathname.includes('/intellidr_fleet_analytics/') || window.location.pathname.includes('/intellidr_sensor_insights/'))) {
+    if (!isLoginPage && protectedPages.some((page) => pathname.includes(page))) {
       if (!user) {
         window.location.href = '../intellidr_user_login/code.html';
       }

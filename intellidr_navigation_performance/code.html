@@ -243,20 +243,20 @@
 <!-- BottomNavBar -->
 <nav class="bg-surface-container-highest dark:bg-surface-container-highest border-t border-outline-variant dark:border-outline-variant flat no shadows fixed bottom-0 w-full z-50 flex justify-around items-center px-edge_margin py-2 pb-[max(8px,env(safe-area-inset-bottom))] text-secondary dark:text-secondary text-label-caps font-label-caps">
 <!-- Nav -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform w-16 py-1 rounded-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform w-16 py-1 rounded-xl" data-route="../intellidr_live_navigation/code.html" href="../intellidr_live_navigation/code.html">
 <span class="material-symbols-outlined mb-1">navigation</span>
 <span>Nav</span>
-</button>
+</a>
 <!-- Trip -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform w-16 py-1 rounded-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform w-16 py-1 rounded-xl" data-route="../intellidr_trip_details/code.html" href="../intellidr_trip_details/code.html">
 <span class="material-symbols-outlined mb-1">route</span>
 <span>Trip</span>
-</button>
+</a>
 <!-- Sensors -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform w-16 py-1 rounded-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform w-16 py-1 rounded-xl" data-route="../intellidr_sensor_insights/code.html" href="../intellidr_sensor_insights/code.html">
 <span class="material-symbols-outlined mb-1">sensors</span>
 <span>Sensors</span>
-</button>
+</a>
 <!-- Performance (Active State applied based on JSON style_active_navigation mapping) -->
 <button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 active:scale-95 transition-transform w-16">
 <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">speed</span>
@@ -268,4 +268,5 @@
 <span>Profile</span>
 </button>
 </nav>
+<script src="../app.js"></script>
 </body></html>
